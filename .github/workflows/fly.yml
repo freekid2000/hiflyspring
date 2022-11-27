@@ -21,6 +21,6 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '8'
-    - run: mvn -B package -Dskip.test=true
+    - run: mvn -B package -Dmaven.test.skip=true
     - uses: superfly/flyctl-actions/setup-flyctl@master
     - run: flyctl deploy
