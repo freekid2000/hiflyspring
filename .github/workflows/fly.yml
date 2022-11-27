@@ -17,5 +17,8 @@ jobs:
         distribution: 'temurin'
         java-version: '8'
     - run: java -version
-    - run: mvn package -Dskip.test=true
-    - run: ls target/*.jar
+    - run: mvn -B package -Dskip.test=true
+    - uses: superfly/flyctl-actions/setup-flyctl@master
+    - run: flyctl deploy --remote-only
+      env:
+        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
