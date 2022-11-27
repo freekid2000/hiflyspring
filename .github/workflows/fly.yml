@@ -21,4 +21,4 @@ jobs:
         java-version: '8'
     - run: mvn -B package -Dskip.test=true
     - uses: superfly/flyctl-actions/setup-flyctl@master
-    - run: flyctl deploy --remote-only
+    - run: flyctl deploy
