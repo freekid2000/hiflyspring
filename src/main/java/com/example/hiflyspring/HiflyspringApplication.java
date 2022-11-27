@@ -13,7 +13,7 @@ public class HiflyspringApplication {
         SpringApplication.run(HiflyspringApplication.class, args);
     }
 
-    @GetMapping("/hiFly")
+    @GetMapping("/")
     public String hiFly() {
         return "Hi Fly with Springboot!";
     }
