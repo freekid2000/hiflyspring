@@ -23,4 +23,9 @@ jobs:
         java-version: '8'
     - run: mvn -B package -Dmaven.test.skip=true
     - uses: superfly/flyctl-actions/setup-flyctl@master
-    - run: flyctl deploy
+    - run: |
+        if [ $(flyctl apps list | grep hiflyspring | awk '{ print $1 }') ]; then
+          flyctl apps create hiflyspring
+        fi
+        
+        flyctl deploy
