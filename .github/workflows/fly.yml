@@ -24,7 +24,7 @@ jobs:
     - run: mvn -B package -Dmaven.test.skip=true
     - uses: superfly/flyctl-actions/setup-flyctl@master
     - run: |
-        if [ $(flyctl apps list | grep hiflyspring | awk '{ print $1 }') ]; then
+        if [ ! $(flyctl apps list | grep hiflyspring | awk '{ print $1 }') ]; then
           flyctl apps create hiflyspring
         fi
         
